@@ -31,7 +31,7 @@ const Table = ({table, bookings, date, time, onBookingSubmit}) => {
                 
             )
         } else {
-            return <NewBooking onBookingSubmit={onBookingSubmit} date={date} table={table.id}/>
+            return <NewBooking onBookingSubmit={onBookingSubmit} date={date} time={time} table={table.id}/>
         }
     }
     return (

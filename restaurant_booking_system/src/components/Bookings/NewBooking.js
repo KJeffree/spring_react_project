@@ -7,7 +7,7 @@ class NewBooking extends React.Component {
         this.state = {
                 customerName: '',
                 date: this.props.date,
-                time: '',
+                time: this.props.time,
                 guests: '',
                 phoneNumber: '',
                 seating: `http://localhost:8080/seatings/${this.props.table}`,
@@ -15,8 +15,6 @@ class NewBooking extends React.Component {
         }
 
         this.handleCustomerChange = this.handleCustomerChange.bind(this)
-        this.handleDateChange = this.handleDateChange.bind(this)
-        this.handleTimeChange = this.handleTimeChange.bind(this)
         this.handleGuestChange = this.handleGuestChange.bind(this)
         this.handleNumberChange = this.handleNumberChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
@@ -51,25 +49,11 @@ class NewBooking extends React.Component {
             phoneNumber: phoneNumber,
             seating: seating
         });
-        this.setState({
-            customerName: '',
-            date: '',
-            time: '',
-            guests: '',
-            phoneNumber: '',
-            seating: ''
-        })
         
     }
 
     handleCustomerChange(event) {
         this.setState({customerName: event.target.value})
-    }
-    handleDateChange(event) {
-        this.setState({date: event.target.value})
-    }
-    handleTimeChange(event) {
-        this.setState({time: event.target.value})
     }
     handleGuestChange(event) {
         this.setState({guests: event.target.value})
@@ -90,13 +74,6 @@ class NewBooking extends React.Component {
                     placeholder="Customer Name"
                     value={this.state.customerName}
                     onChange={this.handleCustomerChange}
-                />
-                <br/>
-                <input
-                    type="time"
-                    placeholder="Booking Time"
-                    value={this.state.time}
-                    onChange={this.handleTimeChange}
                 />
                 <br/>
                 <input
