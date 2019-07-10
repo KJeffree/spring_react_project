@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.tableView {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  text-align: center;
+
+}
+
+.tableList {
+  display: flex;
+}
+
+.booked {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  text-align: center;
+  background-color: red;
+}

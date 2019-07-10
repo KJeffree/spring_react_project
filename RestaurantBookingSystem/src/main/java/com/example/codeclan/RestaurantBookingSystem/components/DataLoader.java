@@ -26,7 +26,16 @@ public class DataLoader implements ApplicationRunner {
         Seating seating1 = new Seating(4);
         seatingRepository.save(seating1);
 
-        Booking booking1 = new Booking(2, "18:00", "12/01/2001", "Jane Smith", "019298478", seating1);
+        Seating seating2 = new Seating(2);
+        seatingRepository.save(seating2);
+
+        Seating seating3 = new Seating(6);
+        seatingRepository.save(seating3);
+
+        Seating seating4 = new Seating(4);
+        seatingRepository.save(seating4);
+
+        Booking booking1 = new Booking(2, "18:00", "2019-07-10", "Jane Smith", "019298478", seating1);
         bookingRepository.save(booking1);
     }
 }

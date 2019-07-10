@@ -21,9 +21,7 @@ class NewTable extends React.Component {
         this.setState({seats: ''});
     }
 
-    handleSeatsChange(event) {
-        console.log(event.target.value);
-        
+    handleSeatsChange(event) {        
         this.setState({seats: event.target.value})
     }
 

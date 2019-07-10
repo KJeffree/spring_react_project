@@ -1,35 +1,17 @@
 import React from 'react';
-import TableList from '../components/TableList';
-import {Link} from 'react-router-dom'
+import TableList from '../components/Tables/TableList';
 
 class TableContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            tables: []
         }
     }
-
-    componentDidMount() {
-        const url = "http://localhost:8080/seatings/all"
-
-        fetch(url)
-            .then(res => res.json())
-            .then(tables => this.setState({tables: tables}))
-            .catch(err => console.error)
-    }
-
-    
 
     render() {
         return (
             <div>
-                <ul>
-                    <li>
-                    <Link to="/new-table">New Table</Link>
-                    </li>
-                </ul>
-                <TableList tables={this.state.tables}/>
+                <TableList onBookingSubmit={this.props.onBookingSubmit} date={this.props.date} time={this.props.time} bookings={this.props.bookings} tables={this.props.tables}/>
             </div>
             )
     }
