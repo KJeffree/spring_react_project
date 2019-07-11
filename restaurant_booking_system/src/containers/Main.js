@@ -1,10 +1,6 @@
 import React, {Component, Fragment} from "react"
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
-import BookingContainer from "./BookingContainer";
 import TableContainer from "./TableContainer"
-import NavBar from "../components/NavBar.js"
-import NewBooking from "../components/Bookings/NewBooking";
 import FilterBar from "../components/FilterBar";
 
 
@@ -60,7 +56,15 @@ class Main extends Component {
         this.setState({date: `${year}-${month}-${date}`})
 
         var hour = new Date().getHours()
-        this.setState({time: `${hour}:00`})
+        var minutes = new Date().getMinutes()
+        console.log(minutes);
+        
+        if (minutes < 30){
+            minutes = "00"
+        } else {
+            minutes = "30"
+        }
+        this.setState({time: `${hour}:${minutes}`})
         const bookingUrl = "http://localhost:8080/bookings/all"
         fetch(bookingUrl)
             .then(res=>res.json())
@@ -102,7 +106,7 @@ class Main extends Component {
         return (
                 <Fragment>
                     <h1>Restaurant Booking System</h1>
-                    <FilterBar onTimeChange={this.handleTimeChange} onDateChange={this.handleDateChange}/>
+                    <FilterBar onTimeChange={this.handleTimeChange} time={this.state.time} date={this.state.date} onDateChange={this.handleDateChange}/>
                     <TableContainer onTableSubmit={this.handleTableSubmit} date={this.state.date} time={this.state.time} onBookingSubmit={this.handleBookingSubmit} bookings={this.state.bookings} tables={this.state.tables}/>
                 </Fragment>
         )

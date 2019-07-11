@@ -10,7 +10,7 @@ class NewBooking extends React.Component {
                 time: this.props.time,
                 guests: '',
                 phoneNumber: '',
-                seating: `http://localhost:8080/seatings/${this.props.table}`,
+                seating: `http://localhost:8080/seatings/${this.props.table.id}`,
                 tables: []
         }
 
@@ -78,6 +78,7 @@ class NewBooking extends React.Component {
                 <br/>
                 <input
                     type="number"
+                    max={this.props.table.seats}
                     placeholder="Number of Guests"
                     value={this.state.guests}
                     onChange={this.handleGuestChange}
